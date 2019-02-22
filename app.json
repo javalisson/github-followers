@@ -1,0 +1,10 @@
+{
+  "name": "GitHub Followers",
+  "description": "Shows the followers of a user given its username.",
+  "repository": "https://http://github.com/javalisson/github-followers",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-static.git"
+    }
+  ]
+}
