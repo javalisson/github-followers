@@ -19,7 +19,6 @@ services:
       - ./package.json:/app/package.json
       - ./package-lock.json:/app/package-lock.json
       - ./postcss.config.js:/app/postcss.config.js
-      - ./Procfile:/app/Procfile
       - ./public:/app/public
       - ./README.md:/app/README.md
       - ./src:/app/src
