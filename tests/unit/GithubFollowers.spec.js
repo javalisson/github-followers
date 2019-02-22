@@ -15,12 +15,12 @@ describe('GithubFollowers.vue', () => {
     expect(wrapper.contains('input')).toBe(true)
   })
 
-  it('updates the username to search for after hit enter', () => {
+  it('updates the username to search for after enter is hit', () => {
     const wrapper = factory()
     const input = wrapper.find('input')
     input.element.value = 'javalisson'
     input.trigger('input')
-    input.trigger('change')
+    // input.trigger('change')
     input.trigger('keyup.enter')
     expect(wrapper.vm.username).toMatch('javalisson')
     // expect(wrapper.find('.username').text()).toEqual('javalisson')
