@@ -1,29 +1,24 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+  #app
+    router-view
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+<style lang="sass">
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700')
+
+*
+  box-sizing: border-box
+  font-family: 'Roboto Mono', monospace
+  font-weight: 400
+
+body
+  width: 90%
+  margin: 0 auto
+  padding: 0
+
+#app
+  background-color: #FFF
+  padding: 2rem
+  min-height: 100vh
+  margin: 0
 </style>

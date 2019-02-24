@@ -1,28 +1,19 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import GithubFollowers from '@/components/GithubFollowers.vue'
 
 const factory = (values = {}) => {
-  return mount(GithubFollowers, {
-    data: {
-      ...values
-    }
+  return shallowMount(GithubFollowers, {
+    ...values
   })
 }
 
 describe('GithubFollowers.vue', () => {
-  it('has an input', () => {
-    const wrapper = factory()
-    expect(wrapper.contains('input')).toBe(true)
-  })
-
-  it('updates the username to search for after enter is hit', () => {
-    const wrapper = factory()
-    const input = wrapper.find('input')
-    input.element.value = 'javalisson'
-    input.trigger('input')
-    // input.trigger('change')
-    input.trigger('keyup.enter')
-    expect(wrapper.vm.username).toMatch('javalisson')
-    // expect(wrapper.find('.username').text()).toEqual('javalisson')
+  it('should show the username', () => {
+    const wrapper = factory({
+      propsData: {
+        username: 'javalisson'
+      }
+    })
+    expect(wrapper.find('.c-github-followers__username').text()).toMatch('javalisson')
   })
 })
