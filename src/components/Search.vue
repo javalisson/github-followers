@@ -1,6 +1,6 @@
 <template lang="pug">
   .c-search
-    input.c-search__input(placeholder="Enter a username" v-model="username" v-on:keyup.enter="search" ref="input")
+    input.c-search__input(placeholder="Enter a username" v-model="username" v-on:keyup.enter="search" ref="input" v-on:input="$emit('input', $event.target.value)")
     button.c-search__button(v-on:click="search") View followers
 </template>
 
@@ -11,14 +11,14 @@
     flex-wrap: wrap
     flex-direction: row
 
-    & > *
-      display: block
-      width: 100%
-      margin-bottom: 1rem
-      @media (min-width: $tablet)
-        display: inline
-        width: auto
-        flex-grow: 1
+  & > *
+    display: block
+    width: 100%
+    margin-bottom: 1rem
+    @media (min-width: $tablet)
+      display: inline
+      width: auto
+      flex-grow: 1
 
 .c-search__input
   padding: 0.75rem
