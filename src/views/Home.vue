@@ -7,8 +7,8 @@
       .c-message(v-if="message")
         p {{ message }}
 
-    ul
-      li(v-for="user in users" v-bind:key="user.login")
+    ul.github-followers-result-list
+      li.github-followers-result-item(v-for="user in users" v-bind:key="user.login")
         GithubFollowers(v-bind:user="user")
 
 </template>
@@ -23,6 +23,14 @@ h1
   margin: 1rem 0
   border-radius: 1rem
   color: #848200
+
+.github-followers-result-list
+  padding: 0
+  display: flex
+  flex-direction: column-reverse
+
+.github-followers-result-item
+  list-style-type: none
 </style>
 
 <script>

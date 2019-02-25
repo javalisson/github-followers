@@ -14,7 +14,7 @@ const plugins = process.env.NODE_ENV === 'production' ? [] : [
 export default new Vuex.Store({
   state: {
     users: [
-      createUser('rafaelazd')
+      createUser('javalisson1')
     ]
   },
 
