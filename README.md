@@ -54,6 +54,8 @@ If I had more time to make this better I would certainly try to use TDD. I am no
 
 I would also invest more time on little details of the UI, such as animations. I would like to animate the loading indicators, the appearing of each follower on the list, the transition between searches and the load of new followers. 
 
+I would like to use Storybook.js to document all the states of the components: when the user submit a blank search, a user with no followers, a user with no more followers to load, a user with more followers to load etc.
+
 ### Who
 
 My name is Alisson a.k.a javalisson. I am a developer-interaction-designer-and-teacher. My first contact with Vue.js was two years ago while teaching at IFPR Telêmaco Borba. During the classes we used Vue.js to prototype with code and to create simple front-end data-driven web pages and applications. Now I am focused on diving deeper in the Vue.js ecosystem.
