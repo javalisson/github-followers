@@ -14,7 +14,7 @@
               p This user has no followers
             ul.c-github-followers__followers-list(v-else)
               li.c-github-followers__followers-list-item(v-for="follower in user.followersList")
-                a(v-on:click.prevent="searchForUser(follower.login)" href="#")
+                a(v-on:click="searchForUser(follower.login)" v-bind:href="'#' + follower.login")
                   User(v-bind:avatarUrl="follower.avatar_url" v-bind:login="follower.login")
 
       button.c-github-followers__load-more(v-if="user.nextLink" v-on:click="loadMoreFollowers") Load more followers
