@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   web:
-    image: javalisson/github-followers:0.1
+    image: javalisson/github-followers:1.0.0
     command: nginx
     build:
       context: .

@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   web:
-    image: javalisson/github-followers:base-0.1
+    image: javalisson/github-followers:dev
     command: npm run serve
     build:
       context: .
