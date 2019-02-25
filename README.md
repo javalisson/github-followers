@@ -46,7 +46,7 @@ I decided to give Vuex a try after studing it for a while. It was my first proje
 
 Docker makes me confident because I know that my code is working on a reproducible environment and I won't spend hours trying to make my code run on a different machine.
 
-I created a docker-compose configuration file that, in combination with a multi-stage build, lets me use the same base image to develop and to build a image to production. 
+I created a docker-compose configuration file that, in combination with a multi-stage build, lets me use the same base image to develop and to build a image to production. The `dev` image comes with Vue CLI 3 and uses `npm run serve` to make use of Hot Reload. The image for production serves the compiled files from dist folder using NGINX.
 
 ### If I had more time... (and why left tests outside my code)
 
