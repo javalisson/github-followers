@@ -60,13 +60,15 @@ I would like to use Storybook.js to document all the states of the components: w
 
 My name is Alisson a.k.a javalisson. I am a developer-interaction-designer-and-teacher. My first contact with Vue.js was two years ago while teaching at IFPR Telêmaco Borba. During the classes we used Vue.js to prototype with code and to create simple front-end data-driven web pages and applications. Now I am focused on diving deeper in the Vue.js ecosystem.
 
-You can find on https://github.com/javalisson, https://www.linkedin.com/in/alissonprestes/ and https://www.facebook.com/javalisson
+You can find on [GitHub](https://github.com/javalisson), [LinkedIn](https://www.linkedin.com/in/alissonprestes/) and [Facebook](https://www.facebook.com/javalisson)
 
 ## Repository, hosted demo and Docker image
 
-The source code is on GitHub https://github.com/javalisson/github-followers
-The hosted demo is on Netlify https://elated-montalcini-9d20f1.netlify.com/
-The Docker image is on Docker Hub https://hub.docker.com/r/javalisson/github-followers
+The [source code](https://github.com/javalisson/github-followers) is on GitHub
+
+The [hosted demo](https://elated-montalcini-9d20f1.netlify.com/) is on Netlify
+
+The [Docker image](https://hub.docker.com/r/javalisson/github-followers) is on Docker Hub
 
 ## Project setup
 ```
