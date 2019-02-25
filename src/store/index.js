@@ -1,18 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
+
+const plugins = process.env.NODE_ENV === 'production' ? [] : [
+  createLogger()
+]
 
 export default new Vuex.Store({
   state: {
     users: [{
       login: 'javalisson',
       followers: 44,
-      followersList: null
-    }, {
-      login: 'TonhaoSemAcento',
-      followers: 0,
-      followersList: null
+      followersList: null,
+      followersUrl: null,
+      nextLink: null,
+      lastLink: null
     }]
   },
   mutations: {
@@ -25,5 +29,6 @@ export default new Vuex.Store({
       console.log('ACTION!')
       commit('addUser', user)
     }
-  }
+  },
+  plugins: plugins
 })

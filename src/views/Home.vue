@@ -26,7 +26,7 @@ h1
 </style>
 
 <script>
-// @ is an alias to /src
+import { mapState } from 'vuex'
 import Search from '@/components/Search.vue'
 import GithubFollowers from '@/components/GithubFollowers.vue'
 
@@ -44,29 +44,29 @@ export default {
   },
 
   computed: {
-    users () {
-      return this.$store.state.users
-    }
+    ...mapState({
+      users: 'users'
+    })
   },
 
   methods: {
     search (username) {
       if (!username.trim()) {
-        console.warn('Username should not be empty')
         this.message = 'Username should not be empty. Please enter an user name.'
         return
       }
       if (this.users.find(user => user.login.toLowerCase() === username.toLowerCase())) {
-        console.warn('Username already is on the list')
         this.message = 'This username already is on the list'
         return
       }
       this.message = ''
-      console.log(`Searching for user '${username}'`)
       this.$store.dispatch('addUser', {
         login: username,
         followers: 0,
-        followersList: []
+        followersList: null,
+        followersUrl: null,
+        nextLink: null,
+        lastLink: null
       })
     },
 
