@@ -30,6 +30,8 @@ import { mapState } from 'vuex'
 import Search from '@/components/Search.vue'
 import GithubFollowers from '@/components/GithubFollowers.vue'
 
+import { createUser } from '@/utils/user'
+
 export default {
   name: 'home',
   components: {
@@ -59,15 +61,17 @@ export default {
         this.message = 'This username already is on the list'
         return
       }
+
       this.message = ''
-      this.$store.dispatch('addUser', {
-        login: username,
-        followers: 0,
-        followersList: null,
-        followersUrl: null,
-        nextLink: null,
-        lastLink: null
+
+      const user = createUser(username)
+      this.$store.commit('ADD_USER', {
+        user
       })
+
+      // this.$store.dispatch('LOAD_USER_PROFILE', {
+      //   username
+      // })
     },
 
     resetMessage () {
