@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
 
 import github from '@/api/github'
-import { createUser } from '@/utils/user'
 
 Vue.use(Vuex)
 
@@ -13,9 +12,7 @@ const plugins = process.env.NODE_ENV === 'production' ? [] : [
 
 export default new Vuex.Store({
   state: {
-    users: [
-      createUser('javalisson')
-    ]
+    users: []
   },
 
   getters: {

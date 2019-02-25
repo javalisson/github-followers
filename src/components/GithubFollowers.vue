@@ -1,5 +1,5 @@
 <template lang="pug">
-  .c-github-followers
+  .c-github-followers(v-bind:id="user.login ? user.login.toLowerCase() : ''")
     .c-github-followers__loading(v-if="user.isLoading") ... loading ...
     .c-github-followers__content(v-else)
       p.c-github-followers__message(v-if="user.error") {{ user.error }}

@@ -5,13 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "vue": "^2.6.6",
-    "vue-router": "^3.0.1",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
@@ -20,10 +18,8 @@
     "@vue/cli-plugin-unit-jest": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
     "@vue/eslint-config-standard": "^4.0.0",
-    "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.9.0",
@@ -32,6 +28,5 @@
     "vue-cli-plugin-pug": "^1.0.7",
     "vue-cli-plugin-style-resources-loader": "^0.1.3",
     "vue-template-compiler": "^2.5.21"
-  },
-  "heroku-run-build-script": true
+  }
 }

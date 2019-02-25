@@ -5,7 +5,7 @@
 
     transition(name="fade")
       .c-message(v-if="message")
-        p {{ message }}
+        p(v-html="message")
 
     ul.github-followers-result-list
       li.github-followers-result-item(v-for="user in users" v-bind:key="user.login")
@@ -70,7 +70,7 @@ export default {
         return
       }
       if (this.users.find(user => user.login.toLowerCase() === username.toLowerCase())) {
-        this.message = 'This username already is on the list'
+        this.message = `This username already is on the list (<a href="#${username}">here</a>)`
         return
       }
 

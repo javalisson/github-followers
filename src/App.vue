@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    router-view
+    Home
 </template>
 
 <style lang="sass">
@@ -22,3 +22,14 @@ body
   min-height: 100vh
   margin: 0
 </style>
+
+<script>
+import Home from '@/views/Home'
+
+export default {
+  name: 'App',
+  components: {
+    Home
+  }
+}
+</script>
