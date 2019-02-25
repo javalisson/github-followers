@@ -1,6 +1,8 @@
 export function createUser (username) {
   return {
     login: username,
+    name: null,
+    avatarUrl: null,
     isLoading: false,
     isLoadingFollowers: false,
     followers: 0,

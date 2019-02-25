@@ -28,12 +28,7 @@
   border-bottom: 1px solid #DDD
 
 .c-search__button
-  color: white
-  background-color: #24a5f8
-  border: none
-  border-radius: 0.75rem
-  font-weight: bold
-  padding: 0.75rem 1.5rem
+  @include my-button()
   @media (min-width: $tablet)
     margin-left: 1rem
     flex-grow: 0

@@ -1,4 +1,7 @@
-# github-followers
+# GitHub Followers
+
+## About
+
 
 ## Project setup
 ```

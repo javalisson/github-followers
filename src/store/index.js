@@ -14,7 +14,7 @@ const plugins = process.env.NODE_ENV === 'production' ? [] : [
 export default new Vuex.Store({
   state: {
     users: [
-      createUser('javalisson1')
+      createUser('javalisson')
     ]
   },
 
@@ -31,6 +31,8 @@ export default new Vuex.Store({
 
     UPDATE_USER (state, { user, profile }) {
       user.login = profile.login
+      user.name = profile.name
+      user.avatarUrl = profile.avatar_url
       user.isLoading = false
       user.followers = profile.followers
       user.followersList = []
@@ -90,7 +92,7 @@ export default new Vuex.Store({
             } else if (parseInt(error.response.headers['x-ratelimit-remaining']) === 0) {
               const resetTimestamp = parseInt(error.response.headers['x-ratelimit-reset']) * 1000
               const resetTimeStr = (new Date(resetTimestamp)).toLocaleString()
-              errorMessage = `You've reached the limit of queries and you must wait until ${resetTimeStr} to try again`
+              errorMessage = `You've reached the limit of queries and must wait until ${resetTimeStr} to try again`
             } else errorMessage = `There was an unexpected error while getting data for user ${username} from GitHub`
 
             commit('SET_ERROR_MESSAGE', {
