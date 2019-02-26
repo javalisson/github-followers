@@ -15,7 +15,6 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
-    "@vue/cli-plugin-unit-jest": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-core": "7.0.0-bridge.0",
