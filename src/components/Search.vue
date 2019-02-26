@@ -1,6 +1,6 @@
 <template lang="pug">
   .c-search
-    input.c-search__input(placeholder="Enter a username" v-model="username" v-on:keyup.enter="search" ref="input" v-on:input="$emit('input', $event.target.value)")
+    input.c-search__input(placeholder="Enter a username" v-bind:value="username" v-on:keyup.enter="search" ref="input" v-on:input="username = $event.target.value")
     button.c-search__button(v-on:click="search") View followers
 </template>
 
