@@ -32,6 +32,7 @@ npm install --global http-server
 # serve the result, default http-server port is 8080, check the console
 http-server ./dist
 ```
+
 ### Development
 
 In directory where your source code is, open a terminal and execute the following commands:
@@ -48,6 +49,38 @@ npm run serve
 ```
 
 Now you can go to your browser and visit `http://localhost:8080`.
+
+### Using Docker images for production or development
+
+If want to build an image from the source you will need [Docker](https://www.docker.com/get-started) and [Docker Compose](https://docs.docker.com/compose/install/).
+
+You can build an image ready for production or an image that you can use for development. Go to the directory where the source code and execute these commands.
+
+```bash
+# builds an image ready for production, tagged javalisson/github-followers:1.0.0
+docker-compose build
+# builds an image for development, tagged javalisson/github-followers:dev
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml build
+```
+
+You can also use Docker Compose to run the images from the composer file. The image built for development support Hot-Module-Replacement (HMR), so you can edit files on your file system and see them reflected on your browser.
+
+```bash
+# runs the image ready for production
+docker-compose up
+# runs the image for development. Supports HMR
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+```
+
+If you want to run the images after the build process or just download the images from Docker Hub (if the images are not on your local machine they are automatically downloaded) just type one of the following commands.
+
+```bash
+# run the production image.
+docker run -it --rm --name github-follwers_1 -p 80:80 javalisson/github-followers:1.0.0
+# run the development image
+docker run -it --rm --name github-follwers_dev_1 -p 8080:8080 javalisson/github-followers:dev
+```
+
 
 ## About
 
@@ -91,7 +124,7 @@ I decided to give Vuex a try after studing it for a while. It was my first proje
 
 Docker makes me confident because I know that my code is working on a reproducible environment and I won't spend hours trying to make my code run on a different machine.
 
-I created a docker-compose configuration file that, in combination with a multi-stage build, lets me use the same base image to develop and to build a image to production. The `dev` image comes with Vue CLI 3 and uses `npm run serve` to make use of Hot Reload. The image for production serves the compiled files from dist folder using NGINX.
+I created a docker-compose configuration file that, in combination with a multi-stage build, lets me use the same base image to develop and to build a image to production. The `dev` image comes with Vue CLI 3 and uses `npm run serve` to make use of Hot Reload. The image for production serves the compiled files from dist directory using NGINX.
 
 ### If I had more time... (and why left tests outside my code)
 
@@ -107,7 +140,7 @@ My name is Alisson a.k.a javalisson. I am a developer-interaction-designer-and-t
 
 You can find on [GitHub](https://github.com/javalisson), [LinkedIn](https://www.linkedin.com/in/alissonprestes/) and [Facebook](https://www.facebook.com/javalisson)
 
-## Repository, hosted demo and Docker image
+## Repository, hosted demo and Docker images
 
 The [source code](https://github.com/javalisson/github-followers) is on GitHub
 
