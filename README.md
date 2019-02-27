@@ -4,83 +4,109 @@ A web app that lets the user enter a GitHub username and, if it exists, it will 
 
 ## Project setup
 
-To build the project, for development or production, you need to have [Vue CLI](https://cli.vuejs.org/guide/installation.html) installed globally.
+Here's a description of how to just run the code. If you want to make modifications or just play with the code, check the next section, ["Running in development environment"](#running-dev-env)
+
+### How to run app on your local machine from source code
+
+To run the code you will need `Node.js` with `npm`. We will also use `http-server` to serve the resulting files, but feel free to use any other web server, such as Apache or NGINX.
+
+The first step is to download the source.
 
 ```bash
-# install Vue CLI globally 
-npm install --global @vue/cli @vue/cli-service-global
+git clone https://github.com/javalisson/github-followers.git
 ```
 
-Now you are able to compile the source code. 
-
-### Production
-
-Go to the directory where your source code is, open a terminal and execute the following commands:
+Then enter the source code directory.
 
 ```bash
-# install project dependencies located in package.json to local node_modules directory
+cd github-followers
+```
+
+Before building the project you need to download the project dependencies.
+
+```bash
 npm install
-# build step, which is defined in package.json scripts and will invoke Vue CLI
+```
+
+Now it's time to build the project.
+
+```bash
 npm run build
 ```
 
-If everything works fine, the `dist` directory contains the code to deploy in production. You can serve it with a web server. Here we will use [`http-server`](https://www.npmjs.com/package/http-server) but fell free to use Apache or NGINX.
+The resulting code will be on `dist` directory and is ready for deployment. You can serve it with `http-server`. Install `http-server`.
 
 ```bash
-# install a simple web server
-npm install --global http-server
-# serve the result, default http-server port is 8080, check the console
-http-server ./dist
+npm install -g http-server
 ```
 
-### Development
-
-In directory where your source code is, open a terminal and execute the following commands:
+Then serve the `dist` directory.
 
 ```bash
-# install project dependencies located in package.json to local node_modules directory
+http-server dist
+```
+
+Visit your browser on `http://localhost:8080`. That's it!
+
+### <a href="running-dev-env"></a>(Optional) Running in development environment
+
+If you want to modify the project or just want to play with the code, you can run the development server that comes with Vue CLI. It is a web server and also provides you with Hot-Module-Replacement (HRM), i.e., your modifications are loaded in the browser without a browser refresh. 
+
+Run the development server with
+
+```bash
+# the same steps took in the previous section
+git clone https://github.com/javalisson/github-followers.git
+cd github-followers
 npm install
-```
-We will use the development web server provided by Vue CLI. It serves the application and uses Hot-Module-Replacement (HMR) to refresh the web app in the browser as soon as you save your changes.
-
-```bash
-# serve the app at port 8080 by default, check the console for error messages
+# but now runnig the development server
 npm run serve
 ```
 
-Now you can go to your browser and visit `http://localhost:8080`.
+Visit `http://localhost:8080` on your browser. Then modify the source and check how the browser reloads the content.
 
-### Using Docker images for production or development
+### (Optional) Running with Docker
 
-If want to build an image from the source you will need [Docker](https://www.docker.com/get-started) and [Docker Compose](https://docs.docker.com/compose/install/).
+This project includes a Dockerfile and two Docker Compose files. They let you build images for production or development. 
 
-You can build an image ready for production or an image that you can use for development. Go to the directory where the source code and execute these commands.
+The production image uses `NGINX` to serve the `dist` folder. You can build it with 
 
 ```bash
-# builds an image ready for production, tagged javalisson/github-followers:1.0.0
-docker-compose build
-# builds an image for development, tagged javalisson/github-followers:dev
-docker-compose -f docker-compose.yml -f docker-compose.dev.yml build
+docker build --tag=javalisson/github-followers .
 ```
 
-You can also use Docker Compose to run the images from the composer file. The image built for development support Hot-Module-Replacement (HMR), so you can edit files on your file system and see them reflected on your browser.
+and then run it with
 
 ```bash
-# runs the image ready for production
+docker run -p 80:80 javalisson/github-followers 
+```
+
+You can now visit `http://localhost` on your browser.
+
+Alternatively, you can use Docker Compose build and run the production image.
+
+```bash
+# build step
+docker-compose build
+# launch the container
 docker-compose up
-# runs the image for development. Supports HMR
+```
+
+The development image lets you modify the code on your local file system and reflects the changes inside the container. Since the container uses the Vue CLI development server, it gives you the same ability to reload modifications on the browser automatically. In this case, use Docker Compose to build and run the development container.
+
+```bash
+# builds and launch the development container
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 ```
 
-If you want to run the images after the build process or just download the images from Docker Hub (if the images are not on your local machine they are automatically downloaded) just type one of the following commands.
+Visit `http://localhost:8080` on your browser. Then modify the source and check how the browser reloads the content.
+
+You can also just download the production image from Docker Hub (if the image is not on your local machine it will be automatically downloaded). 
 
 ```bash
 # run the production image.
-docker run -it --rm --name github-follwers_1 -p 80:80 javalisson/github-followers:1.0.0
-# run the development image
-docker run -it --rm --name github-follwers_dev_1 -p 8080:8080 javalisson/github-followers:dev
+docker run -it --rm --name github-followers_1 -p 80:80 javalisson/github-followers:latest
 ```
-
 
 ## About
 
