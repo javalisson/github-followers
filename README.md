@@ -4,7 +4,7 @@ A web app that lets the user enter a GitHub username and, if it exists, it will 
 
 ## Project setup
 
-Here's a description of how to just run the code. If you want to make modifications or just play with the code, check the next section, ["Running in development environment"](#running-dev-env)
+Here's a description of how to just run the code. If you want to make modifications or just play with the code, check the next section, ["Running in development environment"](#optional-running-in-development-environment)
 
 ### How to run app on your local machine from source code
 
