@@ -1,10 +1,10 @@
 # base stage
-FROM node:8-alpine as base
+FROM node:10.15-alpine as base
 WORKDIR /app
 COPY package*.json ./
-RUN npm install -g @vue/cli @vue/cli-service-global
 RUN npm install
 EXPOSE 8080
+CMD [ "npm", "run", "serve" ]
 
 # build stage
 FROM base as build

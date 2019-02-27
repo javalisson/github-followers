@@ -8,14 +8,17 @@ services:
       target: base
     volumes:
       # WARNING: Don't map ./ to /app because it overrides the node_modules folder
+      - ./app.json:/app/app.json
+      - ./babel.config.js:/app/babel.config.js
       - ./.browserslistrc:/app/.browserslistrc
+      - ./docker-compose.dev.yml:/app/docker-compose.dev.yml
+      - ./docker-compose.yml:/app/docker-compose.yml
+      - ./Dockerfile:/app/Dockerfile
       - ./.editorconfig:/app/.editorconfig
       - ./.eslintrc.js:/app/.eslintrc.js
       - ./.git:/app/.git
       - ./.gitignore:/app/.gitignore
-      - ./babel.config.js:/app/babel.config.js
-      - ./docker-compose.yml:/app/docker-compose.yml
-      - ./jest.config.js:/app/jest.config.js
+      - ./.netlify:/app/.netlify
       - ./package.json:/app/package.json
       - ./package-lock.json:/app/package-lock.json
       - ./postcss.config.js:/app/postcss.config.js
@@ -23,7 +26,7 @@ services:
       - ./README.md:/app/README.md
       - ./src:/app/src
       - ./static.json:/app/static.json
-      - ./tests:/app/tests
+      - ./vue.config.js:/app/vue.config.js
     ports: 
       - "8080:8080"
     environment:
